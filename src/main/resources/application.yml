@@ -1,0 +1,44 @@
+micronaut:
+    application:
+        name: micronaut-liquibase
+    server:
+        port: 8081
+datasources:
+    default:
+        url: 'jdbc:mysql://localhost:3306/micronaut_flyway'
+        username: root
+        password: secret
+        driverClassName: com.mysql.cj.jdbc.Driver
+#    books:
+#        url: 'jdbc:mysql://localhost:3306/books'
+#        username: root
+#        password: secret
+#        driverClassName: com.mysql.cj.jdbc.Driver
+
+jpa:
+    default:
+        packages-to-scan:
+            - 'example.micronaut'
+        properties:
+            hibernate:
+                hbm2ddl:
+                    auto: validate
+#                    auto: none
+                show_sql: false
+
+flyway:
+    datasources:
+        default:
+            locations: classpath:databasemigrations
+#            async: true
+#            clean-schema: true
+#            url: 'jdbc:mysql://localhost:3306/micronaut_flyway'
+#            username: root
+#            password: secret
+#        books:
+#            async: true
+#            locations: classpath:databasemigrations
+#            url: 'jdbc:mysql://localhost:3306/books'
+#            user: root
+#            password: secret
+
